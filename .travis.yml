@@ -1,17 +1,22 @@
 language: node_js
 node_js:
-  - "11.0"
+- '11.0'
 branches:
   only:
-    - master
+  - master
 before_script:
-  - npm install -g @angular/cli
+- npm install -g @angular/cli
 script:
-  - npm install
-  - npm run build:prod
+- npm install
+- npm run build:prod
 deploy:
   skip_cleanup: true
   provider: firebase
   token:
     secure: "FIREBASE_TOKEN"
-  project: "app"
+  project: app
+env:
+  global:
+  - secure: 2zOyhu1c5BQs+V5UhJqn5+LFlJYTJgiqaiGkSeLBl/ErsN+5TbU81SgGhB3SWS055gG67k8okApHKFOKn0DB0owAlA3aH7opV5POL6BYwraOdEefIuITYY/Ast1dgenOF9qRpeccklKVFO+231xOuky5WS3dRf7ILQkOVMvngHZeuGXzB21NcjPmEIu8ksKx4UJVHuW6KDYL+FWFsgxqg7bW+bOvmjcsldMbNZQs2p+TPiom+M3DH5oQY33E3XBZM+nCqITUbfG94W7ai5/oZckvUQNJV9NP8Y0JFEvKIDZbF1cxUDbbt5VoZD0DAWUMeMQaefL0jwjwT1L6SY+3fvL9563PFSkhqKV+4A0XrYoKQgRn+j+U5U3ouI3JVBQg9jCfMPsgI7YcWvQscaL6pSlUqIX6dkc4SpJYtXYPXkrW4uXzJNlBUdLLALBvTV2xriFwlrB/pdTAhFvVwIN5j1gfM05ZU1tjmccBZjtPdjBsJNqsAFc7R+4Oj71EOk9CkLBjco/gHff5zglV6Zaqo+0QMCCgvakwl4utBpLmiVsQL0Ij65FmAfl1iv1gw1LurVpbZtWfJChKKUF9bV7OQKUnCDLkDS9SNWpFPkAavsnxx6+t9y753xtEo/US65CwBvnUTNoUr/w65em+RC+6K0yt/pUzBA9mUVY8FUyP4CM=
+  - secure: pLvVS1Ezx5XkqG5O6HdpcKcaDlhPTl1sl1NgukJfIvQk1a98YRI0Dsmu185gU0VMHLYxgjgi3i8CzUTODyCCE6b+sbMnfob2ZFn3HV006s95UG9IvXSfJ5mI8mnyehVGsDavkpUciPQ2tB16dzWJ7b2Uu0NYz89qYA5ZKsm65/v5P5n72aB/rOn0ES3ow4cBcX2pgps/eN06sHJBh+pvrP6jHBT/aNJMqRInuYtHgndY4MrSm4qbnNixP7GQWj9gZlkib7ky6y38viDGltgrfTAgdNzQYl+Ww2MHkMgXuJ1S13mG86GmWwbQLbqIVicQqNF+zraVP9h03NC8GSDuE3mWvjpsIig7tx8PW9UemJGPQcDuVU09Fu/9zkK6k8ZceaIhMCTkxZwWyLJWgvAAy9lp+DlQgg5NG4/mXGLdOWyb02QKxc8pGP4Pt648uFsXzk56+IL4uyZ303LT71A1qGkrXvR9JfCxAMf6w4waZhBurHkR0C9Zd+n3ZELGchRCWL/8lOO8PzV7J+fL+zkP7tYltkZFvYeJXECptNLbOM0l8bqWl9MB+99cAlbDro691du+c/1Dff2XJND8YlJpYaojDKq1J/CDLtTsvmqIOR/t6bkkR3+U9NoFiaIJkAdQT4wV1mfSQS26k8SGObmAqm1Eu89qYxwzsr38/6+eTpw=
+  - secure: SkIuR8o8BYZd/RBI2ps+Q/UvjUjqjRmSctQQ8ZjVpKVdXN+N7MqVpoidd3Lrj+rHlOdYECPlunmrpFq97enSt+x3y/BMspTVNzshHgSgiwK/ggI4cdDWnlOCCQ/Q1FA5OHSZZ/ZSZDOwYj8zRuks6M/9AxI4dklupPdzQ/zOhn/mJukbkZncVv3jTg3lx7myEmpfeeHPpWAgvvTZAxwyOrVXSU5rPGRjwZ0p0/xmdvI27URKLxpLkKnJnmuMx6PBQrfuCv46Zn9Ow2q3r+oBBfe2hBwfTlGrm0ffPAP1OBsrstFtdYiUpzn0fwApzdhZsL5O2LYSEu2ytgTalE4Z6s3wGOkbryjg/+Oua73H+YDV/RZcT409uq7eRRIRkicIVbvDPIeYfiWZe7hQM0x7x2JAFhkBE9JbyiVbYO9Ro9i323U52mesBalscU6r5CS4tT4ffYC4fJBMDNlUQvdemHTNFGYgw0HUFsIVje6t5grTyiGHeERvsjunx9ERushkFT0dr2YPDirl76/3U43HU6Gp1VI7F06+h9pIpteN8NgHFuoF8Af3fSQcj5A+wiemmy31NINMIhBPd5u9DzGnpZigz6aRHKWkr4QfhMCsdMtukfNrwUVvi0bUgW3aI5zDi4KAUyYSAbIruYVOcYoHN4HIjysklVXCVfDmL1N5gy8=
