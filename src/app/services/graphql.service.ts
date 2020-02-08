@@ -120,7 +120,7 @@ export class GraphqlService {
       edge.node.level = LEVELS[topic];
     }
     const language = edge.node.primaryLanguage.name;
-    if (topic) {
+    if (language) {
       edge.node.icon = ICONS[language] || 'information-circle';
     }
     return edge;
