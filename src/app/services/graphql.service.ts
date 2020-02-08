@@ -22,8 +22,8 @@ const LEVELS = {
     name: 'medium',
     color: 'warning'
   },
-  'level-hight': {
-    name: 'hight',
+  'level-high': {
+    name: 'high',
     color: 'danger'
   },
 };
@@ -57,7 +57,7 @@ export class GraphqlService {
           rta.edges = this.filterByType(rta.edges, filter.type);
         }
         if (filter.level && filter.level !== 'all') {
-          rta.edges = this.filterByLevel(rta.edges, filter.type);
+          rta.edges = this.filterByLevel(rta.edges, filter.level);
         }
         rta.edges = this.addAttrsInRepository(rta.edges);
         return rta;
@@ -115,7 +115,7 @@ export class GraphqlService {
   .map(edge => {
     const topics = edge.node.repositoryTopics.nodes.map(item => item.topic.name);
     const topic = topics
-    .find(item => item === 'level-basic' || item === 'level-medium' || item === 'level-hight');
+    .find(item => item === 'level-basic' || item === 'level-medium' || item === 'level-high');
     if (topic && LEVELS[topic]) {
       edge.node.level = LEVELS[topic];
     }
