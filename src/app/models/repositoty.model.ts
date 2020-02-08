@@ -23,6 +23,7 @@ export interface Repository {
   name: string;
   url: string;
   description: string;
+  homepageUrl: string;
   totalCount: number;
   level?: {
     name: string;

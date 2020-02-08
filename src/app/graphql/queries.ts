@@ -7,6 +7,7 @@ export const SEARCH = /* GraphQL */`query($query: String!) {
           name
           url
           description
+          homepageUrl
           repositoryTopics(first: 10){
             nodes {
               id
