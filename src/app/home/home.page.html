@@ -20,7 +20,7 @@
       <ion-label><h1>Repositorios</h1></ion-label>
       <ion-badge slot="end">{{ response.repositoryCount }}</ion-badge>
     </ion-item>
-    <ion-item *ngFor="let repo of response.edges">
+    <ion-item [href]="repo.node.url" target="_blank" *ngFor="let repo of response.edges">
       <ion-label>
         <h2>{{ repo.node.name }}</h2>
         <p>{{ repo.node.description }}</p>
