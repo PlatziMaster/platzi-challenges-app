@@ -40,9 +40,16 @@ export class GraphqlService {
           rta.edges = rta.edges
           .filter(edge => edge.node.name.includes(filter.type));
         }
+        if (filter.level && filter.level !== 'all') {
+          rta.edges = rta.edges
+          .filter(edge =>  {
+            const topics = edge.node.repositoryTopics.nodes.map(item => item.topic.name);
+            return topics.includes(`level-${filter.level}`);
+          });
+        }
         rta.edges = rta.edges.map(edge => {
           const topics = edge.node.repositoryTopics.nodes
-          .map(item => item.name);
+          .map(item => item.topic.name);
           if (topics.includes('level-basic')) {
             edge.node.level = {
               name: 'basic',

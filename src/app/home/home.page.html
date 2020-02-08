@@ -24,12 +24,13 @@
       <ion-label>
         <h2>{{ repo.node.name }}</h2>
         <p>{{ repo.node.description }}</p>
-        <p *ngIf="repo.node.level">
-          <ion-chip [color]="repo.node.level.color"
-            >{{ repo.node.level.name }}</ion-chip
-          >
-        </p>
       </ion-label>
+      <ion-chip
+        slot="end"
+        *ngIf="repo.node.level"
+        [color]="repo.node.level.color"
+        >{{ repo.node.level.name }}</ion-chip
+      >
     </ion-item>
   </ion-list>
 </ion-content>

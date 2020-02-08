@@ -33,5 +33,7 @@ export interface Repository {
 
 export interface Topic {
   id: string;
-  name: string;
+  topic: {
+    name: string;
+  };
 }
