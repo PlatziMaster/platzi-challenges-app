@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { SEARCH } from '@graphql/queries';
 import { SearchResponse, Filter } from '@models/repositoty.model';
+import { AuthService } from '@services/auth.service';
 
 
 @Injectable({
@@ -14,7 +15,8 @@ export class GraphqlService {
 
   constructor(
     @Inject('API_URL') private apiUrl: string,
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService
   ) { }
 
   search(filter: Partial<Filter>): Observable<SearchResponse> {
@@ -25,12 +27,13 @@ export class GraphqlService {
     if (filter.language && filter.language !== 'all') {
       query += `language:${filter.language}`;
     }
+    const token = this.authService.getToken();
     return this.http.post(this.apiUrl, {
       query: SEARCH,
       variables: { query }
     }, {
       headers: {
-        Authorization: `Bearer e7b96ba86c46dd29309e8bcb8a81ef7c86e5551c`
+        Authorization: `Bearer ${token}`
       }
     })
     .pipe(

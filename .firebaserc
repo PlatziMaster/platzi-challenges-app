@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "platzichallenges"
+  },
+  "targets": {
+    "platzichallenges": {
+      "hosting": {
+        "app": [
+          "platzichallenges"
+        ]
+      }
+    }
   }
 }

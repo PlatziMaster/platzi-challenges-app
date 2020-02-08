@@ -1,0 +1,13 @@
+ion-content {
+  background: --ion-color-primary-shade;
+  .login{
+    width: 100%;
+    text-align: center;
+    .logo {
+      max-width: 139px;
+      margin: 0 auto;
+      padding: 10px;
+      display: block;
+    }
+  }
+}

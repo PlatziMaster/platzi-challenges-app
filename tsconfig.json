@@ -23,6 +23,7 @@
       "@services/*": ["src/app/services/*"],
       "@graphql/*": ["src/app/graphql/*"],
       "@models/*": ["src/app/models/*"],
+      "@guards/*": ["src/app/guards/*"],
     }
   },
   "angularCompilerOptions": {
