@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Filtros
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="onFilter($event)">
+    <ion-list>
+      <ion-radio-group formControlName="language">
+        <ion-list-header>
+          <ion-label>Lenguaje</ion-label>
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label>Todos</ion-label>
+          <ion-radio slot="start" value="all"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>JavaScript</ion-label>
+          <ion-radio slot="start" value="JavaScript"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>HTML</ion-label>
+          <ion-radio slot="start" value="HTML"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Python</ion-label>
+          <ion-radio slot="start" value="Python"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+      <ion-radio-group formControlName="topic">
+        <ion-list-header>
+          <ion-label>Tema</ion-label>
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label>Todos</ion-label>
+          <ion-radio slot="start" value="all"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Numbers</ion-label>
+          <ion-radio slot="start" value="numbers"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>HTML</ion-label>
+          <ion-radio slot="start" value="HTML"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Arrays</ion-label>
+          <ion-radio slot="start" value="arrays"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+      <ion-radio-group formControlName="type">
+        <ion-list-header>
+          <ion-label>Tipo</ion-label>
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label>Todos</ion-label>
+          <ion-radio slot="start" value="all"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Proyecto</ion-label>
+          <ion-radio slot="start" value="project"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Reto</ion-label>
+          <ion-radio slot="start" value="challenge"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Clase</ion-label>
+          <ion-radio slot="start" value="class"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="block" (click)="onFilter($event)">
+    <ion-icon slot="start" name="funnel"></ion-icon>
+    Buscar
+  </ion-button>
+</ion-footer>

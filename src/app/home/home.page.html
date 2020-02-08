@@ -1,14 +1,30 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Ionic Blank
+      Platzi Challenges
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openFilterModal()">
+        <ion-icon slot="icon-only" name="funnel"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-list *ngIf="response">
+    <ion-item *ngIf="response.repositoryCount === 0">
+      No se encontró nada
+    </ion-item>
+    <ion-item *ngIf="response.repositoryCount > 0">
+      <ion-label><h1>Repositorios</h1></ion-label>
+      <ion-badge slot="end">{{ response.repositoryCount }}</ion-badge>
+    </ion-item>
+    <ion-item *ngFor="let repo of response.edges">
+      <ion-label>
+        <h2>{{ repo.node.name }}</h2>
+        <p>{{ repo.node.description }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
