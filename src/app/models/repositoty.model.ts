@@ -25,6 +25,10 @@ export interface Repository {
   description: string;
   homepageUrl: string;
   totalCount: number;
+  icon?: string;
+  primaryLanguage: {
+    name: string;
+  };
   level?: {
     name: string;
     color: string;

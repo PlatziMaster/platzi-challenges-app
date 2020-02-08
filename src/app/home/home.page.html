@@ -16,14 +16,19 @@
 
 <ion-content>
   <ion-list *ngIf="response">
-    <ion-item *ngIf="response.repositoryCount === 0">
+    <ion-item *ngIf="response.edges.length === 0">
       No se encontró nada
     </ion-item>
-    <ion-item *ngIf="response.repositoryCount > 0">
+    <ion-item *ngIf="response.edges.length">
       <ion-label><h1>Repositorios</h1></ion-label>
-      <ion-badge slot="end">{{ response.repositoryCount }}</ion-badge>
+      <ion-badge slot="end">{{ response.edges.length }}</ion-badge>
     </ion-item>
-    <ion-item [href]="repo.node.url" target="_blank" *ngFor="let repo of response.edges">
+    <ion-item
+      [href]="repo.node.url"
+      target="_blank"
+      *ngFor="let repo of response.edges"
+    >
+      <ion-icon slot="start" [name]="repo.node.icon"></ion-icon>
       <ion-label>
         <h2>{{ repo.node.name }}</h2>
         <p>{{ repo.node.description }}</p>

@@ -42,7 +42,6 @@ export class HomePage implements OnInit {
     this.graphqlService.search(filter)
     .subscribe(async (data) => {
       this.response = data;
-      console.log(data);
       await loading.dismiss();
     }, async (error) => {
       await loading.dismiss();
