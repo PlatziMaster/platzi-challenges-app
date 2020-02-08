@@ -7,6 +7,7 @@ export interface Filter {
   type: string;
   topic: string;
   language: string;
+  level: string;
 }
 
 export interface EdgeRepository {
@@ -23,7 +24,11 @@ export interface Repository {
   url: string;
   description: string;
   totalCount: number;
-  repositoryTopics: EdgeTopic[];
+  level?: {
+    name: string;
+    color: string;
+  };
+  repositoryTopics: EdgeTopic;
 }
 
 export interface Topic {

@@ -30,7 +30,7 @@ export class GraphqlService {
       variables: { query }
     }, {
       headers: {
-        Authorization: `Bearer 6e35cc730b2d605ed0cd3e3fa919058a810e8e6a`
+        Authorization: `Bearer e7b96ba86c46dd29309e8bcb8a81ef7c86e5551c`
       }
     })
     .pipe(
@@ -40,6 +40,27 @@ export class GraphqlService {
           rta.edges = rta.edges
           .filter(edge => edge.node.name.includes(filter.type));
         }
+        rta.edges = rta.edges.map(edge => {
+          const topics = edge.node.repositoryTopics.nodes
+          .map(item => item.name);
+          if (topics.includes('level-basic')) {
+            edge.node.level = {
+              name: 'basic',
+              color: 'success'
+            };
+          } else if (topics.includes('level-medium')) {
+            edge.node.level = {
+              name: 'medium',
+              color: 'warning'
+            };
+          } else if (topics.includes('level-hight')) {
+            edge.node.level = {
+              name: 'hight',
+              color: 'danger'
+            };
+          }
+          return edge;
+        });
         return rta;
       })
     );

@@ -16,7 +16,8 @@ export class HomePage implements OnInit {
   filter: Filter = {
     type: 'all',
     topic: 'all',
-    language: 'all'
+    language: 'all',
+    level: 'all'
   };
 
   constructor(

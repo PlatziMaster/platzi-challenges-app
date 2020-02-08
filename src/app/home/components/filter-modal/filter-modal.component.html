@@ -14,81 +14,43 @@
 <ion-content>
   <form [formGroup]="form" (ngSubmit)="onFilter($event)">
     <ion-list>
-      <ion-radio-group formControlName="language">
-        <ion-list-header>
-          <ion-label>Lenguaje</ion-label>
-        </ion-list-header>
+      <ion-item>
+        <ion-label position="stacked">Lenguaje</ion-label>
+        <ion-select placeholder="Selecciona uno" formControlName="language" interface="popover">
+          <ion-select-option value="all">Todos</ion-select-option>
+          <ion-select-option value="JavaScript">JavaScript</ion-select-option>
+          <ion-select-option value="HTML">HTML</ion-select-option>
+          <ion-select-option value="Python">Python</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Tema</ion-label>
+        <ion-select placeholder="Selecciona uno" formControlName="topic" interface="popover">
+          <ion-select-option value="all">Todos</ion-select-option>
+          <ion-select-option value="arrays">Arrays</ion-select-option>
+          <ion-select-option value="HTML">HTML</ion-select-option>
+          <ion-select-option value="numbers">Numbers</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Tipo</ion-label>
+        <ion-select placeholder="Selecciona uno" formControlName="type" interface="popover">
+          <ion-select-option value="all">Todos</ion-select-option>
+          <ion-select-option value="project">Proyecto</ion-select-option>
+          <ion-select-option value="class">Clase</ion-select-option>
+          <ion-select-option value="challenge">Reto</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Nivel</ion-label>
+        <ion-select placeholder="Selecciona uno" formControlName="level" interface="popover">
+          <ion-select-option value="all">Todos</ion-select-option>
+          <ion-select-option value="low">Bajo</ion-select-option>
+          <ion-select-option value="medium">Medio</ion-select-option>
+          <ion-select-option value="high">Alto</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-        <ion-item>
-          <ion-label>Todos</ion-label>
-          <ion-radio slot="start" value="all"></ion-radio>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>JavaScript</ion-label>
-          <ion-radio slot="start" value="JavaScript"></ion-radio>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>HTML</ion-label>
-          <ion-radio slot="start" value="HTML"></ion-radio>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Python</ion-label>
-          <ion-radio slot="start" value="Python"></ion-radio>
-        </ion-item>
-      </ion-radio-group>
-      <ion-radio-group formControlName="topic">
-        <ion-list-header>
-          <ion-label>Tema</ion-label>
-        </ion-list-header>
-
-        <ion-item>
-          <ion-label>Todos</ion-label>
-          <ion-radio slot="start" value="all"></ion-radio>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Numbers</ion-label>
-          <ion-radio slot="start" value="numbers"></ion-radio>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>HTML</ion-label>
-          <ion-radio slot="start" value="HTML"></ion-radio>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Arrays</ion-label>
-          <ion-radio slot="start" value="arrays"></ion-radio>
-        </ion-item>
-      </ion-radio-group>
-      <ion-radio-group formControlName="type">
-        <ion-list-header>
-          <ion-label>Tipo</ion-label>
-        </ion-list-header>
-
-        <ion-item>
-          <ion-label>Todos</ion-label>
-          <ion-radio slot="start" value="all"></ion-radio>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Proyecto</ion-label>
-          <ion-radio slot="start" value="project"></ion-radio>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Reto</ion-label>
-          <ion-radio slot="start" value="challenge"></ion-radio>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Clase</ion-label>
-          <ion-radio slot="start" value="class"></ion-radio>
-        </ion-item>
-      </ion-radio-group>
     </ion-list>
   </form>
 </ion-content>

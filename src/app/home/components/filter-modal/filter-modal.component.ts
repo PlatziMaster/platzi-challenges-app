@@ -34,6 +34,7 @@ export class FilterModalComponent implements OnInit {
       language: ['all', Validators.required],
       topic: ['all', Validators.required],
       type: ['all', Validators.required],
+      level: ['all', Validators.required],
     });
   }
 
