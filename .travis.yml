@@ -1,20 +1,17 @@
 language: node_js
 node_js:
-- '11.0'
+  - '11.0'
 branches:
   only:
-  - master
+    - master
 before_script:
-- npm install -g @angular/cli
+  - npm install -g @angular/cli
 script:
-- npm install
-- npm run build:prod
+  - npm install
+  - npm run build:prod
 deploy:
   skip_cleanup: true
   provider: firebase
   token:
-    secure: "1CYFXDsvwZybXTUS9yp8YwjI0cd3CPhWz8iBxCa5ZuAQHFSYOKG0jsiFwiTJRsih4sxQgAfIs8d4RufCdRdYZScGgUAARBkDKVn2IoP3VSF2VXYNClkUug5Pxe8nFQtEj+I25oYgq1/7weSdLHDCIiVzCQRZ/CUgti8vODhQN9lBnFvR8nEKnwcLPQAgAplGLZlCyt31QRZ5IueZYMysLdNSdOBchT4jyz3PUMecZgGifazF6Mri1wZohjdHwVN8fT8vlidvYUlxBUtxrXZAR2oDAF9Oi4mS28QTTJv+4NOeY7gA5oaKIScAT4qVMAPWcBIjeme924+YT9hX6z35ie3lXhdWO88Vpi9q5siEm/lgLXZSv5U61tKdX/y1j6E+Bf89uXjUo74PLbtxO4/OkNCYVx554SmGTDopk5h87DtjokeZva5TZsWUmMhYX1ijbd/IqxC4paRMH5t8C0+CkoXHdoo9+/fkIvq+XuYjLIa4uQ0AK+IV4rVWRdn5yA6l0l4l8GmYUDwpCj3qi1GeiWP92YSxW9AaxAkl/qyK6BYII9f5E1AEDKtjDVWjthfo/zxO/KE65P8SztKOcj1wi5QjDq1ndyuswFI1suUFhUb9ZE0/QODIsowTABMq9p0uP5f/AEaYNTV6VRFcFxoWIj1sJ7yOFaBrtiwj6voA03s="
+    secure: $FIREBASE_TOKEN
   project: app
-env:
-  global:
-    secure: 1CYFXDsvwZybXTUS9yp8YwjI0cd3CPhWz8iBxCa5ZuAQHFSYOKG0jsiFwiTJRsih4sxQgAfIs8d4RufCdRdYZScGgUAARBkDKVn2IoP3VSF2VXYNClkUug5Pxe8nFQtEj+I25oYgq1/7weSdLHDCIiVzCQRZ/CUgti8vODhQN9lBnFvR8nEKnwcLPQAgAplGLZlCyt31QRZ5IueZYMysLdNSdOBchT4jyz3PUMecZgGifazF6Mri1wZohjdHwVN8fT8vlidvYUlxBUtxrXZAR2oDAF9Oi4mS28QTTJv+4NOeY7gA5oaKIScAT4qVMAPWcBIjeme924+YT9hX6z35ie3lXhdWO88Vpi9q5siEm/lgLXZSv5U61tKdX/y1j6E+Bf89uXjUo74PLbtxO4/OkNCYVx554SmGTDopk5h87DtjokeZva5TZsWUmMhYX1ijbd/IqxC4paRMH5t8C0+CkoXHdoo9+/fkIvq+XuYjLIa4uQ0AK+IV4rVWRdn5yA6l0l4l8GmYUDwpCj3qi1GeiWP92YSxW9AaxAkl/qyK6BYII9f5E1AEDKtjDVWjthfo/zxO/KE65P8SztKOcj1wi5QjDq1ndyuswFI1suUFhUb9ZE0/QODIsowTABMq9p0uP5f/AEaYNTV6VRFcFxoWIj1sJ7yOFaBrtiwj6voA03s=
