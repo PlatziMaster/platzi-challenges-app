@@ -14,3 +14,4 @@ deploy:
   provider: firebase
   token:
     secure: "1//0hzNZfJeKKDLUCgYIARAAGBESNwF-L9Ir7ZNz4z6zjqYFbzaqVWUYWezHJzEaT-K1wrGNIKtYMOekpFU054G3eKlKlmNx-IYzGQg"
+  project: "app"
