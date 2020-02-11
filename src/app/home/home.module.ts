@@ -22,9 +22,6 @@ import { FilterModalComponent } from './components/filter-modal/filter-modal.com
   declarations: [
     HomePage,
     FilterModalComponent
-  ],
-  entryComponents: [
-    FilterModalComponent
   ]
 })
 export class HomePageModule {}
