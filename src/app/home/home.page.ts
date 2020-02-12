@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { LoadingController, ModalController } from '@ionic/angular';
 
 import { GraphqlService } from '@services/graphql.service';
-import { AuthService } from '@services/auth.service';
 import { SearchResponse, Filter } from '@models/repositoty.model';
 import { FilterModalComponent } from './components/filter-modal/filter-modal.component';
 
@@ -26,8 +24,6 @@ export class HomePage implements OnInit {
     private graphqlService: GraphqlService,
     private loadingCtrl: LoadingController,
     private modalCtrl: ModalController,
-    private authService: AuthService,
-    private router: Router
   ) {}
 
   ngOnInit() {
@@ -61,11 +57,6 @@ export class HomePage implements OnInit {
       this.filter = data;
       this.getRepositories(data);
     }
-  }
-
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['./login']);
   }
 
 }

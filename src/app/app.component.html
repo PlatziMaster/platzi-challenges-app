@@ -1,3 +1,36 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="main">
+    <ion-menu side="start" menuId="first" contentId="main">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item>
+            <ion-icon name="logo-github" slot="start"></ion-icon>
+            Repositorios
+          </ion-item>
+          <!-- <ion-item>
+            <ion-icon name="help-outline" slot="start"></ion-icon>
+            ¿Cómo funciona?
+          </ion-item> -->
+        </ion-list>
+      </ion-content>
+      <ion-footer>
+        <!-- <ion-item>
+          <ion-icon name="logo-pwa" slot="start"></ion-icon>
+          Instalar
+        </ion-item> -->
+        <ion-item (click)="logout()">
+          <ion-icon name="log-out-outline" slot="start"></ion-icon>
+          Salir
+        </ion-item>
+      </ion-footer>
+    </ion-menu>
+
+    <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>
+

@@ -49,4 +49,8 @@ export class FilterModalComponent implements OnInit {
     this.modalCtrl.dismiss();
   }
 
+  get topicField() {
+    return this.form.get('topic');
+  }
+
 }

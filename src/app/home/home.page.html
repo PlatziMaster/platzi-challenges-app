@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
       Platzi Challenges
     </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="openFilterModal()">
-        <ion-icon slot="icon-only" name="funnel"></ion-icon>
-      </ion-button>
-      <ion-button (click)="logout()">
-        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        <ion-icon slot="icon-only" name="filter-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

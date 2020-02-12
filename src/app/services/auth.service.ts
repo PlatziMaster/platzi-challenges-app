@@ -24,6 +24,10 @@ export class AuthService {
     return this.fb.auth;
   }
 
+  getAuth$() {
+    return this.fb.authState;
+  }
+
   getToken() {
     return localStorage.getItem('token');
   }

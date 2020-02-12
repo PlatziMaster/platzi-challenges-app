@@ -11,6 +11,7 @@ const ICONS = {
   Python: 'logo-python',
   HTML: 'logo-html5',
   JavaScript: 'logo-javascript',
+  TypeScript: 'logo-javascript',
 };
 
 const LEVELS = {
