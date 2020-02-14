@@ -7,14 +7,21 @@ import { SessionGuard } from '@guards/session.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
-    canActivate: [ AuthGuard ],
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
+    canActivate: [ SessionGuard ],
   },
   {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
-    canActivate: [ SessionGuard ],
+    path: 'repositories',
+    loadChildren: () => import('./pages/repositories/repositories.module').then( m => m.RepositoriesPageModule)
+  },
+  {
+    path: 'tutorial',
+    loadChildren: () => import('./pages/tutorial/tutorial.module').then( m => m.TutorialPageModule)
+  },
+  {
+    path: 'repo',
+    loadChildren: () => import('./pages/repo/repo.module').then( m => m.RepoPageModule)
   },
 ];
 

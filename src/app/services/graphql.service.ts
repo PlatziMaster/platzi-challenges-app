@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { SEARCH } from '@graphql/queries';
+import { SEARCH, REPO } from '@graphql/queries';
 import { SearchResponse, Filter, EdgeRepository } from '@models/repositoty.model';
 import { AuthService } from '@services/auth.service';
 
@@ -40,6 +40,24 @@ export class GraphqlService {
     private http: HttpClient,
     private authService: AuthService
   ) { }
+
+  getRepoDetail(owner: string, name: string) {
+    const token = this.authService.getToken();
+    return this.http.post(this.apiUrl, {
+      query: REPO,
+      variables: {
+        name,
+        owner
+      }
+    }, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .pipe(
+      map((response: any) => {
+        return response.data.repository;
+      })
+    );
+  }
 
   search(filter: Partial<Filter>): Observable<SearchResponse> {
     const token = this.authService.getToken();

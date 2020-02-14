@@ -15,16 +15,26 @@
 </ion-header>
 
 <ion-content>
+  <ion-segment color="dark" [formControl]="typeCtrl">
+    <ion-segment-button value="challenge" layout="icon-start">
+      <ion-icon name="flame-outline"></ion-icon>
+      <ion-label>Retos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="project" layout="icon-start">
+      <ion-icon name="cube-outline"></ion-icon>
+      <ion-label>Proyectos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="class" layout="icon-start">
+      <ion-icon name="document-text-outline"></ion-icon>
+      <ion-label>Clases</ion-label>
+    </ion-segment-button>
+  </ion-segment>
   <ion-list *ngIf="response">
     <ion-item *ngIf="response.edges.length === 0">
       No se encontró nada
     </ion-item>
-    <ion-item *ngIf="response.edges.length">
-      <ion-label><h1>Repositorios</h1></ion-label>
-      <ion-badge slot="end">{{ response.edges.length }}</ion-badge>
-    </ion-item>
     <ion-item
-      [href]="repo.node.url"
+      [routerLink]="['/repo', 'PlatziMaster', repo.node.name]"
       target="_blank"
       *ngFor="let repo of response.edges"
     >

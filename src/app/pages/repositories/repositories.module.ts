@@ -4,7 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { HomePage } from './home.page';
+import { RepositoriesPage } from './repositories.page';
 import { FilterModalComponent } from './components/filter-modal/filter-modal.component';
 
 @NgModule({
@@ -15,13 +15,13 @@ import { FilterModalComponent } from './components/filter-modal/filter-modal.com
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage
+        component: RepositoriesPage
       }
     ])
   ],
   declarations: [
-    HomePage,
+    RepositoriesPage,
     FilterModalComponent
   ]
 })
-export class HomePageModule {}
+export class RepositoriesPageModule {}

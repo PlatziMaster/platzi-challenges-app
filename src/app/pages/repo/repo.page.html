@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/repositories"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="repo">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ repo.name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ repo.description }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list *ngIf="repo.pullRequests">
+    <ion-item>
+      <h2>Contribuciones</h2>
+      <ion-badge slot="end">{{ repo.pullRequests.totalCount }}</ion-badge>
+    </ion-item>
+    <ion-item *ngFor="let pr of repo.pullRequests?.nodes">
+      <ion-avatar slot="start">
+        <img [src]="pr.author.avatarUrl">
+      </ion-avatar>
+      <ion-label>
+        {{ pr.author.login }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

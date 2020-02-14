@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { FormControl } from '@angular/forms';
 import { LoadingController, ModalController } from '@ionic/angular';
 
 import { GraphqlService } from '@services/graphql.service';
@@ -7,24 +9,33 @@ import { FilterModalComponent } from './components/filter-modal/filter-modal.com
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: 'repositories.page.html',
+  styleUrls: ['repositories.page.scss'],
 })
-export class HomePage implements OnInit {
+export class RepositoriesPage implements OnInit {
 
   response: SearchResponse = null;
   filter: Filter = {
-    type: 'all',
+    type: 'challenge',
     topic: 'all',
     language: 'all',
     level: 'all'
   };
 
+  typeCtrl: FormControl = new FormControl('challenge');
+
   constructor(
     private graphqlService: GraphqlService,
     private loadingCtrl: LoadingController,
     private modalCtrl: ModalController,
-  ) {}
+    private route: ActivatedRoute
+  ) {
+    this.typeCtrl.valueChanges
+    .subscribe(type => {
+      this.filter.type = type || 'all';
+      this.getRepositories(this.filter);
+    });
+  }
 
   ngOnInit() {
     this.getRepositories(this.filter);

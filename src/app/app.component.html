@@ -8,21 +8,21 @@
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-item>
-            <ion-icon name="logo-github" slot="start"></ion-icon>
-            Repositorios
+          <ion-item routerLink="/repositories">
+            <ion-icon name="home-outline" slot="start"></ion-icon>
+            Home
           </ion-item>
-          <!-- <ion-item>
+          <ion-item routerLink="/tutorial">
             <ion-icon name="help-outline" slot="start"></ion-icon>
             ¿Cómo funciona?
-          </ion-item> -->
+          </ion-item>
         </ion-list>
       </ion-content>
       <ion-footer>
-        <!-- <ion-item>
+        <ion-item (click)="installByUser()" *ngIf="installEvent">
           <ion-icon name="logo-pwa" slot="start"></ion-icon>
           Instalar
-        </ion-item> -->
+        </ion-item>
         <ion-item (click)="logout()">
           <ion-icon name="log-out-outline" slot="start"></ion-icon>
           Salir

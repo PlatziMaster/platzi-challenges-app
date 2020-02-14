@@ -20,7 +20,7 @@ export class LoginPage implements OnInit {
 
   async login() {
     const rta = await this.auth.login();
-    this.router.navigate(['./home']);
+    this.router.navigate(['./repositories']);
   }
 
 }

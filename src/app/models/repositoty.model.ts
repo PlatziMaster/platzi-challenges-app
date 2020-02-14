@@ -34,6 +34,20 @@ export interface Repository {
     color: string;
   };
   repositoryTopics: EdgeTopic;
+  pullRequests?: PullRequests;
+}
+
+export interface PullRequests {
+  totalCount: number;
+  nodes: PullRequestsNode[];
+}
+
+export interface PullRequestsNode {
+  author: {
+    avatarUrl: string;
+    login: string;
+    url: string;
+  };
 }
 
 export interface Topic {
