@@ -14,12 +14,14 @@ export class AppComponent implements OnInit {
     private menuCtrl: MenuController,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) {
+    this.menuCtrl.enable(false, 'menu');
+  }
 
   ngOnInit() {
     this.authService.getAuth$()
     .subscribe(auth => {
-      this.menuCtrl.enable(!!auth, 'first');
+      this.menuCtrl.enable(!!auth, 'menu');
     });
   }
 
