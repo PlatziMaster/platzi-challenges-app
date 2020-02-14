@@ -9,7 +9,7 @@
 
 <ion-content *ngIf="repo">
 
-  <ion-card>
+  <ion-card [href]="repo.url" target="_blank">
     <ion-card-header>
       <ion-card-title>{{ repo.name }}</ion-card-title>
     </ion-card-header>
