@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { SwUpdate } from '@angular/service-worker';
 import { MenuController } from '@ionic/angular';
 import { AuthService } from '@services/auth.service';
 
@@ -15,12 +16,14 @@ export class AppComponent implements OnInit {
   constructor(
     private menuCtrl: MenuController,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private swUpdate: SwUpdate,
   ) {
     this.menuCtrl.enable(false, 'menu');
   }
 
   ngOnInit() {
+    this.updatePWA();
     this.authService.getAuth$()
     .subscribe(auth => {
       this.menuCtrl.enable(!!auth, 'menu');
@@ -43,6 +46,14 @@ export class AppComponent implements OnInit {
       this.installEvent.prompt();
       await this.installEvent.userChoice();
     }
+  }
+
+  updatePWA() {
+    this.swUpdate.available
+    .subscribe(value => {
+      console.log('update:', value);
+      window.location.reload();
+    });
   }
 
 }
