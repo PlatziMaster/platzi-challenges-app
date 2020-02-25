@@ -31,7 +31,7 @@ export class FilterModalComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      language: ['all', Validators.required],
+      language: ['all', [Validators.required]],
       topic: ['all', Validators.required],
       type: ['all', Validators.required],
       level: ['all', Validators.required],

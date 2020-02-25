@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import humanizeDuration from 'humanize-duration';
 
 import { SEARCH, REPO } from '@graphql/queries';
 import { SearchResponse, Filter, EdgeRepository } from '@models/repositoty.model';
@@ -137,6 +138,26 @@ export class GraphqlService {
     .find(item => item === 'level-basic' || item === 'level-medium' || item === 'level-high');
     if (topic && LEVELS[topic]) {
       edge.node.level = LEVELS[topic];
+    }
+    const time = topics
+    .find(item => item.includes('time-'));
+    if (time) {
+      const minutes = parseInt(time.split('-')[1], 10) || 0;
+      edge.node.time = humanizeDuration(minutes * 60 * 1000, {
+        language: 'shortEn',
+        languages: {
+          shortEn: {
+            y: () => 'y',
+            mo: () => 'mo',
+            w: () => 'w',
+            d: () => 'd',
+            h: () => 'h',
+            m: () => 'm',
+            s: () => 's',
+            ms: () => 'ms',
+          }
+        }
+      });
     }
     const language = edge.node.primaryLanguage.name;
     if (language) {

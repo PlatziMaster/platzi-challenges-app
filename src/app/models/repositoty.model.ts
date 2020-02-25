@@ -26,6 +26,7 @@ export interface Repository {
   homepageUrl: string;
   totalCount: number;
   icon?: string;
+  time?: string;
   primaryLanguage: {
     name: string;
   };

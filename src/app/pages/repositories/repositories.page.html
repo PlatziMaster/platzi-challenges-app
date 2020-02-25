@@ -50,6 +50,11 @@
         [color]="repo.node.level.color"
         >{{ repo.node.level.name }}</ion-chip
       >
+      <ion-badge
+        slot="end"
+        *ngIf="repo.node.time"
+        >{{ repo.node.time }}</ion-badge
+      >
     </ion-item>
   </ion-list>
 </ion-content>
