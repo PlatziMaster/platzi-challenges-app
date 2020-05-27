@@ -45,3 +45,20 @@ export const REPO = /* GraphQL */`query($name: String!, $owner: String!) {
     }
   }
 }`;
+
+
+export const PR_STATS = /* GraphQL */`query($query: String!) {
+  search(query: $query, type: REPOSITORY, first: 50){
+    edges {
+      node {
+        ... on Repository {
+          name
+          url
+          pullRequests(first: 100) {
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}`;

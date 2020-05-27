@@ -15,6 +15,8 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^9.1.9",
+    "@angular/cdk": "^9.2.4",
     "@angular/common": "~9.1.9",
     "@angular/core": "~9.1.9",
     "@angular/fire": "^5.4.2",
@@ -24,6 +26,7 @@
     "@angular/router": "~9.1.9",
     "@angular/service-worker": "~9.1.9",
     "@ionic/angular": "^5.1.1",
+    "@swimlane/ngx-charts": "^14.0.0",
     "core-js": "^2.5.4",
     "firebase": "^7.8.0",
     "humanize-duration": "^3.21.0",

@@ -8,14 +8,24 @@
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-item autoHide="true" routerLink="/repositories">
-            <ion-icon name="home-outline" slot="start"></ion-icon>
-            Home
-          </ion-item>
-          <ion-item autoHide="true" routerLink="/tutorial">
-            <ion-icon name="help-outline" slot="start"></ion-icon>
-            ¿Cómo funciona?
-          </ion-item>
+          <ion-menu-toggle autoHide="false">
+            <ion-item autoHide="true" routerLink="/repositories">
+              <ion-icon name="home-outline" slot="start"></ion-icon>
+              Home
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle autoHide="false">
+            <ion-item autoHide="true" routerLink="/stats">
+              <ion-icon name="bar-chart" slot="start"></ion-icon>
+              Total de PR
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle autoHide="false">
+            <ion-item autoHide="true" routerLink="/tutorial">
+              <ion-icon name="help-outline" slot="start"></ion-icon>
+              ¿Cómo funciona?
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
       </ion-content>
       <ion-footer>

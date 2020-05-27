@@ -26,6 +26,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/repo/repo.module').then( m => m.RepoPageModule),
     canActivate: [ AuthGuard ],
   },
+  {
+    path: 'stats',
+    loadChildren: () => import('./pages/stats/stats.module').then( m => m.StatsPageModule)
+  },
 ];
 
 @NgModule({

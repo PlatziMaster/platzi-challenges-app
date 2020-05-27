@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/repositories"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Total de PR</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-icon slot="start" name="square" color="primary"></ion-icon>
+        > 70
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-icon slot="start" name="square" color="warning"></ion-icon>
+        > 40 - 69
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-icon slot="start" name="square" color="danger"></ion-icon>
+        < 0 - 39
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ngx-charts-bar-horizontal
+  *ngIf="data"
+  [view]="view"
+  [customColors]="customColors"
+  [results]="data"
+  [xAxis]="true"
+  [yAxis]="true"
+  (select)="select($event)">
+</ngx-charts-bar-horizontal>
+</ion-content>

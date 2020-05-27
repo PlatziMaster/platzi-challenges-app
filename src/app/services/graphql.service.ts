@@ -4,9 +4,11 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import humanizeDuration from 'humanize-duration';
 
-import { SEARCH, REPO } from '@graphql/queries';
+import { SEARCH, REPO, PR_STATS } from '@graphql/queries';
 import { SearchResponse, Filter, EdgeRepository } from '@models/repositoty.model';
 import { AuthService } from '@services/auth.service';
+import { Data } from '@models/stats.model';
+import { database } from 'firebase';
 
 const ICONS = {
   Python: 'logo-python',
@@ -84,6 +86,28 @@ export class GraphqlService {
       })
     );
 
+  }
+
+  getStats() {
+    const token = this.authService.getToken();
+    return this.http.post(this.apiUrl, {
+      query: PR_STATS,
+      variables: {
+        query: 'org:PlatziMaster'
+      }
+    }, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .pipe(
+      map((response: any) => {
+        return response.data.search.edges
+        .map(item => ({
+          name: item.node.name,
+          value: item.node.pullRequests.totalCount
+        }))
+        .sort((a, b) => b.value - a.value);
+      }),
+    );
   }
 
   private makeQuery(filter: Partial<Filter>) {
