@@ -30,6 +30,10 @@ const LEVELS = {
     name: 'high',
     color: 'danger'
   },
+  'undefined': {
+    name: 'undefined',
+    color: 'dark'
+  },
 };
 
 
@@ -88,7 +92,7 @@ export class GraphqlService {
 
   }
 
-  getStats() {
+  getStats(type: string) {
     const token = this.authService.getToken();
     return this.http.post(this.apiUrl, {
       query: PR_STATS,
@@ -100,7 +104,12 @@ export class GraphqlService {
     })
     .pipe(
       map((response: any) => {
-        return response.data.search.edges
+        console.log(response);
+        let edges = response.data.search.edges;
+        if (type && type !== 'all') {
+          edges = this.filterByType(edges, type);
+        }
+        return edges
         .map(item => ({
           name: item.node.name,
           value: item.node.pullRequests.totalCount
@@ -162,6 +171,8 @@ export class GraphqlService {
     .find(item => item === 'level-basic' || item === 'level-medium' || item === 'level-high');
     if (topic && LEVELS[topic]) {
       edge.node.level = LEVELS[topic];
+    } else {
+      edge.node.level = LEVELS['undefined'];
     }
     const time = topics
     .find(item => item.includes('time-'));
@@ -182,10 +193,14 @@ export class GraphqlService {
           }
         }
       });
+    } else {
+      edge.node.time = '--';
     }
-    const language = edge.node.primaryLanguage.name;
+    const language = edge.node.primaryLanguage?.name;
     if (language) {
       edge.node.icon = ICONS[language] || 'information-circle';
+    } else {
+      edge.node.icon = 'circle';
     }
     return edge;
   });

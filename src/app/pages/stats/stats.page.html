@@ -7,26 +7,41 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <ion-segment color="dark" [formControl]="typeCtrl">
+    <ion-segment-button value="challenge" layout="icon-start">
+      <ion-icon name="flame-outline"></ion-icon>
+      <ion-label>Retos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="project" layout="icon-start">
+      <ion-icon name="cube-outline"></ion-icon>
+      <ion-label>Proyectos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="class" layout="icon-start">
+      <ion-icon name="document-text-outline"></ion-icon>
+      <ion-label>Clases</ion-label>
+    </ion-segment-button>
+  </ion-segment>
   <ion-row>
     <ion-col>
       <ion-item>
-        <ion-icon slot="start" name="square" color="primary"></ion-icon>
-        > 70
+        <ion-badge slot="start" color="primary">{{ hightLevel }}</ion-badge>
+        > 70 (CR {{ crHightLevel }}%)
       </ion-item>
     </ion-col>
     <ion-col>
       <ion-item>
-        <ion-icon slot="start" name="square" color="warning"></ion-icon>
-        > 40 - 69
+        <ion-badge slot="start" color="warning">{{ mediumLevel }}</ion-badge>
+        > 40 - 69 (CR {{ crMediumLevel }}%)
       </ion-item>
     </ion-col>
     <ion-col>
       <ion-item>
-        <ion-icon slot="start" name="square" color="danger"></ion-icon>
-        < 0 - 39
+        <ion-badge slot="start" color="danger">{{ lowLevel }}</ion-badge>
+        < 0 - 39 (CR {{ crLowLevel }}%)
       </ion-item>
     </ion-col>
   </ion-row>
+  <h5 class="ion-padding">Total: {{total}}</h5>
   <ngx-charts-bar-horizontal
   *ngIf="data"
   [view]="view"

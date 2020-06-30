@@ -48,7 +48,7 @@ export const REPO = /* GraphQL */`query($name: String!, $owner: String!) {
 
 
 export const PR_STATS = /* GraphQL */`query($query: String!) {
-  search(query: $query, type: REPOSITORY, first: 50){
+  search(query: $query, type: REPOSITORY, first: 100){
     edges {
       node {
         ... on Repository {
