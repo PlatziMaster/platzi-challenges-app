@@ -31,7 +31,7 @@
   </ion-segment>
   <ion-list *ngIf="recent && filter.type == 'challenge'">
     <ion-list-header>
-      <ion-label>Mas Recientes</ion-label>
+      <ion-label>Más Recientes</ion-label>
     </ion-list-header>
     <ion-item [routerLink]="['/repo', 'PlatziMaster', recentRepo.node.name]" target="_blank"
       *ngFor="let recentRepo of recent">
