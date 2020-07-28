@@ -29,32 +29,40 @@
       <ion-label>Clases</ion-label>
     </ion-segment-button>
   </ion-segment>
+  <ion-list *ngIf="recent && filter.type == 'challenge'">
+    <ion-list-header>
+      <ion-label>Más Recientes</ion-label>
+    </ion-list-header>
+    <ion-item [routerLink]="['/repo', 'PlatziMaster', recentRepo.node.name]" target="_blank"
+      *ngFor="let recentRepo of recent">
+      <ion-icon slot="start" [name]="recentRepo.node.icon"></ion-icon>
+      <ion-label>
+        <h2>{{ recentRepo.node.name }}</h2>
+        <p>{{ recentRepo.node.description }}</p>
+        <p>Curso: {{ recentRepo.node.homepageUrl }}</p>
+      </ion-label>
+      <ion-chip slot="end" *ngIf="recentRepo.node.level" [color]="recentRepo.node.level.color">
+        {{ recentRepo.node.level.name }}</ion-chip>
+      <ion-badge slot="end" *ngIf="recentRepo.node.time">{{ recentRepo.node.time }}</ion-badge>
+    </ion-item>
+  </ion-list>
   <ion-list *ngIf="response">
+    <ion-list-header *ngIf="filter.type == 'challenge'">
+      <ion-label>Todos</ion-label>
+    </ion-list-header>
     <ion-item *ngIf="response.edges.length === 0">
       No se encontró nada
     </ion-item>
-    <ion-item
-      [routerLink]="['/repo', 'PlatziMaster', repo.node.name]"
-      target="_blank"
-      *ngFor="let repo of response.edges"
-    >
+    <ion-item [routerLink]="['/repo', 'PlatziMaster', repo.node.name]" target="_blank"
+      *ngFor="let repo of response.edges">
       <ion-icon slot="start" [name]="repo.node.icon"></ion-icon>
       <ion-label>
         <h2>{{ repo.node.name }}</h2>
         <p>{{ repo.node.description }}</p>
         <p>Curso: {{ repo.node.homepageUrl }}</p>
       </ion-label>
-      <ion-chip
-        slot="end"
-        *ngIf="repo.node.level"
-        [color]="repo.node.level.color"
-        >{{ repo.node.level.name }}</ion-chip
-      >
-      <ion-badge
-        slot="end"
-        *ngIf="repo.node.time"
-        >{{ repo.node.time }}</ion-badge
-      >
+      <ion-chip slot="end" *ngIf="repo.node.level" [color]="repo.node.level.color">{{ repo.node.level.name }}</ion-chip>
+      <ion-badge slot="end" *ngIf="repo.node.time">{{ repo.node.time }}</ion-badge>
     </ion-item>
   </ion-list>
 </ion-content>

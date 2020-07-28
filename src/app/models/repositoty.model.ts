@@ -18,12 +18,12 @@ export interface EdgeTopic {
   nodes: Topic[];
 }
 
-
 export interface Repository {
   name: string;
   url: string;
   description: string;
   homepageUrl: string;
+  createdAt: string;
   totalCount: number;
   icon?: string;
   time?: string;
